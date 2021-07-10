@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 public class EstudanteRegistrarBean implements Serializable {
-    private Estudante estudante;
+    private Estudante estudante = new Estudante();
+    private String[] nomes = {"John", "Karl", "Mashid"} ;
 
 }
