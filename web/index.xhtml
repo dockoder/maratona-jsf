@@ -5,7 +5,19 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
    <f:view>
-      <h:outputLabel value="Hello, world"/>
+      <h:outputLabel value="caramba, world"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nome}"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nome.equals('Ex-estudante')}"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 eq estudanteRegistrarBean.estudante.nota2}"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 le estudanteRegistrarBean.estudante.nota2}"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 lt estudanteRegistrarBean.estudante.nota2}"/><br/>
+
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 eq 0 ? 'ZEEROOOOO': 'NONZERO'}"/><br/>
+      <h:outputLabel value="#{estudanteRegistrarBean.estudante.nome += ' SobreNomeNãoAdicionadoNaClasse'}"/><br/>
+      <!-- Palavras reservadas: and, or, not, eq,  ne, lt, gt, le, ge, true, fase
+      null, instanceof, empty, div e mod-->
    </f:view>
+</h:body>
 </html>
