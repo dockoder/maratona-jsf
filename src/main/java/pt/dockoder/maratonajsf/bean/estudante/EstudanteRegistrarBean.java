@@ -24,6 +24,7 @@ public class EstudanteRegistrarBean implements Serializable {
     private Set<String> nomesUnicos = new HashSet<>(asList("Maputo", "Kim", "Ebulo"));
     private Map<String, String> nomesMapeados = new HashMap<>();
     private Boolean mostrarNota;
+    private Boolean mostrarLink = false;
 
     {
         nomesMapeados.put("Mary", "Crazy");
@@ -53,6 +54,12 @@ public class EstudanteRegistrarBean implements Serializable {
 
     public void exibirNotas(boolean action){
         this.mostrarNota = action;
+    }
+
+    public boolean toggleLink(){
+        this.mostrarLink = !this.mostrarLink;
+        System.out.println(this.mostrarLink );
+        return this.mostrarLink;
     }
 
 }

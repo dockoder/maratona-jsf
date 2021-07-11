@@ -75,6 +75,9 @@
         <h:form>
             <h:commandButton value="Mostrar Notas">
                 <f:ajax render="notasGrid" listener="#{estudanteRegistrarBean.exibirNotas(true)}"/>
+            </h:commandButton> &nbsp;
+            <h:commandButton value="Omitir Notas">
+                <f:ajax render="notasGrid" listener="#{estudanteRegistrarBean.exibirNotas(false)}"/>
             </h:commandButton>
         </h:form>
         <h:panelGrid id="notasGrid">
@@ -86,7 +89,22 @@
                           rendered="#{estudanteRegistrarBean.mostrarNota}"/>
             <h:outputText value="#{estudanteRegistrarBean.estudante.nota3}"
                           rendered="#{estudanteRegistrarBean.mostrarNota}"/>
-        </h:panelGrid>
+        </h:panelGrid><br/>
+
+        <!-- Usando fragment & ajax para alterar a visibilidade do <a>-->
+        <h:form>
+
+            <h:commandButton value="Mostrar Links">
+                <f:ajax render="panelGroupLink" listener="#{estudanteRegistrarBean.toggleLink()}"/>
+            </h:commandButton>
+            <h:panelGroup id="panelGroupLink" >
+                <ui:fragment id="x" rendered="#{estudanteRegistrarBean.mostrarLink}">
+                <!--ui:fragment-->
+                    <a href="http://www.google.com" target="_blank">google</a>
+                </ui:fragment>
+            </h:panelGroup>
+        </h:form>
+
     </f:view>
 
 </h:body>
