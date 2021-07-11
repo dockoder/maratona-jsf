@@ -5,9 +5,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
+
     <f:view>
         <!-- p é da biblioteca primefaces usado para importar enums para o jsf-->
         <p:importEnum type="pt.dockoder.maratonajsf.enums.Turno" var="Turno" allSuffix="ALL_ENUM_VALUES"/>
@@ -117,6 +119,37 @@
                              actionListener="#{estudanteRegistrarBean.calcularCubo((x->x*x*x) , 15 )}"/> =&nbsp;
             #{estudanteRegistrarBean.cubo}
         </h:form>
+
+        <!--Lists-->
+        <hr/><h4>Lists:</h4>
+        <ui:repeat value="#{['one', 'two', 'three']}" var="number">
+            #{number}
+        </ui:repeat>
+
+        <!--Set-->
+        <hr/><h4>Set:</h4>
+        <ui:repeat value="#{{'car', 'plane', 'boat', 'boat'}}" var="number">
+            #{number}
+        </ui:repeat>
+
+        <!--Map-->
+        <hr/><h4>Map:</h4>
+        <ui:repeat value="#{{'place':'home', 'dream':'beach', 'work':'heaven'}}" var="entry">
+            Key: #{entry.key} &nbsp; Value: #{entry.value}<br/>
+        </ui:repeat>
+
+        <!--Stream-->
+        <hr/><h4>Stream:</h4>
+        <ui:repeat value="#{[1,2,3,4,5,6].stream().filter(n->n>4).toList()}" var="number">
+            #{number} &nbsp;
+        </ui:repeat>
+
+        <!--Criação de variáveis-->
+        <hr/><h4>Uso de variáveis:</h4>
+        <c:set var="carList" value="#{['Polo', 'Cortina', 'Bettle']}"/>
+        <ui:repeat value="#{carList.stream().toList()}" var="carName">
+            #{carName} &nbsp;
+        </ui:repeat>
 
 
     </f:view>
