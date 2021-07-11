@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pt.dockoder.maratonajsf.model.Estudante;
 
+import javax.el.LambdaExpression;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.Id;
@@ -25,6 +27,7 @@ public class EstudanteRegistrarBean implements Serializable {
     private Map<String, String> nomesMapeados = new HashMap<>();
     private Boolean mostrarNota;
     private Boolean mostrarLink = false;
+    private long cubo = 0;
 
     {
         nomesMapeados.put("Mary", "Crazy");
@@ -60,6 +63,11 @@ public class EstudanteRegistrarBean implements Serializable {
         this.mostrarLink = !this.mostrarLink;
         System.out.println(this.mostrarLink );
         return this.mostrarLink;
+    }
+
+    public void calcularCubo(LambdaExpression le, long value){
+        this.cubo = (long) le.invoke(FacesContext.getCurrentInstance().getELContext(), value);
+        System.out.println(this.cubo);
     }
 
 }
