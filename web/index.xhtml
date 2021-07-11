@@ -142,7 +142,12 @@
         <hr/><h4>Stream:</h4>
         <ui:repeat value="#{[1,2,3,4,5,6].stream().filter(n->n>4).toList()}" var="number">
             #{number} &nbsp;
-        </ui:repeat>
+        </ui:repeat><br/>
+        Average: #{[1,2,3,4,5,6].stream().average().get()}<br/>
+        Average filtered: #{[1,2,3,4,5,6].stream().filter(n->n>4).average().get()}<br/>
+        Sum: #{[1,2,3,4,5,6].stream().sum()}<br/>
+        Sum filtered: #{[1,2,3,4,5,6].stream().filter(n->n>4).sum()}<br/>
+
 
         <!--Criação de variáveis-->
         <hr/><h4>Uso de variáveis:</h4>
